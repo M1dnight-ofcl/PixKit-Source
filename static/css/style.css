@@ -1,0 +1,231 @@
+@import url('https://fonts.cdnfonts.com/css/lexend-deca');
+
+/*
+z-index toc 1-99:
+99: navbar
+98: settings menu
+91: sidebar
+90: canvas
+*/
+
+:root {
+  --bgClr: #282C34;
+  --txClr: #ffffff;
+  --uiClr: #3b3c3f;
+  --olClr: #62656a;
+  --nlClr: #55585e;
+  --avClr: #009dff;
+  --gdWdt: 0.3px;
+  --gdStr: 0.3;
+}
+html {
+  font-family: 'Lexend Deca', sans-serif;
+}
+body {
+  background: var(--bgClr);
+  color: var(--txClr);
+  padding: 0;
+  margin: 0;
+  font-size: 5vmin;
+  padding-top: 7.5dvh;
+  user-select: none;
+}
+span {
+  user-select: none;
+}
+#navbar {
+  position: fixed;
+  top: 0;
+  height: 7.5dvh;
+  width: 100dvw;
+  background: var(--uiClr);
+  margin: 0;
+  padding: 0;
+  z-index: 99;
+}
+#navbar span {
+  display: inline-flex;
+  text-decoration: none;
+  height: 4dvh;
+  width: auto;
+  border: none;
+  margin: 0.5vmin;
+  background: var(--nlClr);
+  padding: 1vmin;
+  padding-left: 4vmin;
+  padding-right: 4vmin;
+  color: var(--txClr);
+  transition: 0.35s;
+  font-size: 3dvh;
+}
+#navbar span:hover {
+  background: var(--avClr);
+  transform: scale(110%);
+}
+#canvas {
+  cursor: pointer;
+}
+#guide {
+  display: grid;
+  position: absolute;
+  pointer-events: none;
+  margin: 0;
+  padding: 0;
+  z-index: 90;
+}
+#guide div {
+  border: var(--gdWdt) solid rgba(0, 0, 0, var(--gdStr));
+  margin: 0;
+  padding: 0;
+  z-index: 99;
+}
+#canvasContainer {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 90;
+}
+#controlContainer {
+  display: flex;
+  position: fixed;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  border: 0.5px solid var(--olClr);
+  padding: 2vmin;
+  width: 25dvw;
+  height: 92.5dvh;
+  background: var(--uiClr);
+  transform: scale(100%);
+  z-index: 91;
+}
+.slider {
+  width: 70%;
+  height: 5vmin;
+}
+#logo {
+  margin: 1vmin;
+  margin-bottom: 3vmin;
+  filter: invert(1);
+}
+#color {
+  width: 7vmin;
+  height: 7vmin;
+  border: none;
+}
+
+#file, #file div, #settings, #settings div, #otherApps {
+  position: fixed;
+  top: 7.5dvh;
+  width: 40vmin;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  background: var(--uiClr);
+  border: 1px solid var(--olClr);
+  padding: 0.5vmin;
+  margin: 0;
+  display: none;
+}
+#file span, #settings span, #otherApps span {
+  display: block;
+}
+#otherApps a {
+  text-decoration: none;
+}
+
+#file-export-options {
+  display: none;
+  left: 41vmin;
+}
+
+#file-span:hover + #file, #file:hover {
+  display: block;
+}
+#file-export:hover + #file-export-options, #file-export-options:hover {
+  display: block;
+}
+
+#settings-span:hover + #settings, #settings:hover {
+  display: block;
+}
+
+#settings {
+  left: 14.5vmin;
+}
+
+#otherApps {
+  left: 34.5vmin;
+}
+
+#otherApps-span:hover + #otherApps, #otherApps:hover {
+  display: block;
+}
+
+#settings-menu {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 98;
+  width: 55dvw;
+  aspect-ratio: 16 / 10;
+  background: rgba(59, 60, 63, 0.8);
+  backdrop-filter: blur(5vmin);
+  border: 0.5px solid var(--olClr);
+}
+#settings-menu-sidebar {
+  display: block;
+  background: rgba(63, 65, 70, 0.3);
+  height: 100%;
+  width: 30%;
+  border: 0.5px solid var(--olClr);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+#settings-menu-sidebar span {
+  display: block;
+  padding: 1.5vmin;
+  background: var(--nlClr);
+  width: 100
+  border: 0.5px solid var(--olClr);
+  margin-bottom: 1.25vmin;
+  font-size: 3vmin;
+  transition: 0.35s;
+}
+#settings-menu-sidebar span:hover {
+  transform: scale(105%) translateX(2.5%);
+  background: var(--avClr);
+}
+
+#settings-menu-main, #settings-menu-personalization {
+  display: flex;
+  flex-direction: column;
+  justify-content: top;
+  align-items: left;
+  position: fixed;
+  left: 30%;
+  top: 0%;
+  margin: 3.5vmin;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+#close-icon {
+  position: absolute;
+  top: 0%;
+  right: 0%;
+  margin: 0.5vmin;
+  cursor: pointer;
+}
+#settings-menu h1 {
+  width: 100%;
+  margin: 0.5vmin;
+  font-size: 6.5vmin;
+}
+#settings-menu-main span, #settings-menu-personalization span {
+  width: 100%;
+  margin: 0.5vmin;
+  font-size: 4vmin;
+}

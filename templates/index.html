@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pixkit - App</title>
+  <link rel="stylesheet" href="static/css/style.css">
+  <link rel="icon" type="image/x-icon" href="/static/pixkit-favicon.png">
+  <script src="static/js/detectMobile.js"></script>
+  <script src="static/js/script.js" defer></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<script type="text/javascript">
+data = myFunc({{data|tojson}})
+</script>
+<div id="navbar">
+  <span id="file-span">File</span>
+    <div id="file">
+      <span id="file-new">New Drawing</span>
+      <span id="file-clear">Clear Drawing</span>
+      
+      <span id="file-export">Export Drawing <ion-icon name="caret-forward-outline"></ion-icon> </span>
+        <div id="file-export-options">
+          <span id="file-export-asPNG">as .png</span>
+          <span id="file-export-asJPEG">as .jpeg</span>
+          <span id="file-export-asWEBP">as .wbep</span>
+        </div>
+
+      <span id="file-server-upload">Save to Cloud</span>
+    </div>
+  
+  <span id="settings-span">Settings</span>
+  
+  <span id="otherApps-span">Other Apps</span>
+    <div id="otherApps">
+      <a href="https://m1dnight.is-a.dev"><span>Portfolio</span></a>
+      <a href="https://sites.google.com/westex.org/sci2"><span>Sci World 2</span></a>
+      <a href="https://uniclicker-2-webveiw-edition.m1dnightdev.repl.co/"><span>UniClicker 2</span></a>
+    </div>
+  
+</div>
+
+<div id="settings-menu">
+  <ion-icon id="close-icon" name="close"></ion-icon>
+  <div id="settings-menu-sidebar">
+    <span id="settings-main-span">General Settings</span>
+    <span id="settings-personalization-span">Personalization</span>
+  </div>
+  <div id="settings-menu-main" class="settingsContent">
+    <h1>Canvas Settings</h1>
+    <span id="settings-showGuides">Show Guides <input type="checkbox" id="guideTog" checked></span>
+  </div>
+  <div id="settings-menu-personalization" class="settingsContent">
+    <h1>Personalization Settings</h1>
+  </div>
+</div>
+  
+<body>
+  <form method="POST">
+  <div id="canvasContainer">
+    <div id="guide"></div>
+    <canvas width="200" height="200" id="canvas"></canvas>
+    <script>
+      var deviceSceenWidth =  window.innerWidth;
+      var deviceSceenHeight = window.innerHeight;
+
+      canvas.setAttribute("width", Math.floor(deviceSceenWidth / 3));
+      canvas.setAttribute("height", Math.floor(deviceSceenWidth / 3));
+    </script>
+  </div>
+  </form>
+  
+  <div id="controlContainer">
+    <img src="/static/pixkit-logo.png" id="logo">
+  <div>
+    <label for="color"><ion-icon name="color-palette"></ion-icon></label>
+    <input type="color" id="color">
+  </div>
+  <div>
+  <div>
+    <label for="brushWidth"><ion-icon name="brush"></ion-icon></label>
+    <input class="slider" type="range" min="1" max="5" value="1" id="width">
+  </div>
+  <div>
+    <label for="brushWidth"><ion-icon name="eye"></ion-icon></label>
+    <input class="slider" type="range" min="1" max="10" value="1" id="zoom">
+  </div>
+  </div>
+</body>
+</html>

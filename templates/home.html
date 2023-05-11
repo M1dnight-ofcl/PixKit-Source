@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pixkit - Home</title>
+  <link rel="stylesheet" href="static/css/home.css">
+  <link rel="icon" type="image/x-icon" href="/static/pixkit-favicon.png">
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+  <div id="header"> 
+    <div id="header-sub">
+    <h1>Unleash Your Imagination</h1>
+    <p>PixKit has everything you need to make amazing masterpieces all in your browser!</p>
+    <a href="/app"><button>Open Web App</button></a>
+    </div> 
+    <div id="down">
+      <span><ion-icon name="chevron-down"></ion-icon></span>
+      <script>
+        document.getElementById("header").classList.remove("scrollUp")
+        function goDown() {
+          document.getElementById("header").classList.add("scrollUp");
+          console.log("pushed header up");
+        };
+        document.getElementById("down").addEventListener("click", goDown);
+      </script>
+    </div>
+  </div>
+  <div id="bg"></div>
+</body>
+</html>

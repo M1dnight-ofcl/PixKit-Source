@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pixkit Mobile</title>
+  <link rel="stylesheet" href="static/css/mobile.css">
+  <link rel="icon" type="image/x-icon" href="/static/pixkit-favicon.png">
+  <script src="static/js/script.js" defer></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+
+<div id="navbar">
+  <span id="menu-span"><ion-icon name="menu-sharp"></ion-icon></span>
+  <img src="/static/pixkit-logo.png" id="logo">
+</div>
+  
+<body>
+
+  <div id="canvasContainer">
+    <div>
+    <div id="guide"></div>
+    <canvas width="200" height="200" id="canvas"></canvas>
+    </div>
+    <script defer>
+      var deviceSceenWidth =  window.innerWidth;
+      var deviceSceenHeight = window.innerHeight;
+
+      canvas.setAttribute("width", Math.floor(deviceSceenWidth));
+      canvas.setAttribute("height", Math.floor(deviceSceenWidth));
+    </script>
+  </div>
+  
+  <div id="controlContainer">
+  <div>
+    <label for="color"><ion-icon name="color-palette"></ion-icon></label>
+    <input type="color" id="color">
+  </div>
+  <div>
+    <label for="brushWidth"><ion-icon name="brush"></ion-icon></label>
+    <input class="slider" type="range" min="1" max="5" value="1" id="width">
+  </div>
+  <div>
+    <label for="brushWidth"><ion-icon name="eye"></ion-icon></label>
+    <input class="slider" type="range" min="1" max="10" value="1" id="zoom">
+  </div>
+  
+</body>
+</html>
