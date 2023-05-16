@@ -1,4 +1,4 @@
-var load = function() {
+$(document).ready(function() {
   $.getJSON('static/themes/default/default.json', function(data) {
     let theme = data;      
     console.log(theme)
@@ -11,8 +11,4 @@ var load = function() {
     root.style.setProperty('--avClr', theme.activeColor);
     $('head').append(`<link rel="stylesheet" type="text/css" href="${theme["customCssPath"]}">`);
   });
-};
-
-$(document).ready(function() {
-  load();
 });

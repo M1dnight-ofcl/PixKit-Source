@@ -6,7 +6,7 @@ from datetime import datetime
 from colorama import Fore as color
 from serverside import serverMenu as internal
 
-version = "v0.6 patch 7"
+version = "v0.6 patch 8"
 
 class Sketch(f.Flask):
   def __init__(self):
@@ -42,7 +42,7 @@ class Sketch(f.Flask):
         return "|%s| cloud save ran into TypeError" %(datetime.now())
       else:
         if not os.path.exists(PATH):
-          os.makedirs(PATH)
+          os.makedirs(PATH, 0o666)
         print("|%s| made %s" %(datetime.now(), DIR))
         
       if os.path.exists(PATH):
@@ -54,7 +54,8 @@ class Sketch(f.Flask):
           id = 0
           for char in image_data.split(""):
             id = id + str(ord(char))
-          dbKey = base64.b64encode(f"in_{DIR}/{FNAME}.png id=") + id
+            print(id)
+          dbKey = base64.b64encode(f"in_{DIR}/{FNAME}.png id={id}")
           db[dbKey] = image_data
           print(db[dbKey])
           if os.path.isfile(f'/static/serverside/serverStorage/{DIR}/{FNAME}.png'):

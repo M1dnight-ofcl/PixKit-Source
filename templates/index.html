@@ -1,24 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head id="head">
+  <!-- Basic Meta Tags -->
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pixkit - App</title>
   <link rel="icon" type="image/x-icon" href="/static/pixkit-favicon.png">
+
+  <!-- Local Scripts -->
   <script src="static/js/detectMobile.js"></script>
   <script src="static/js/script.js" defer></script>
+
+  <!-- Ionic Icons Import -->
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-  <!-- <link href="/static/themes/default/style.css" rel="stylesheet"> -->
+  
+  <!-- Temporary CSS link -->
+  <link href="/static/themes/default/style.css" rel="stylesheet">
+  
+  <!-- jQuery import -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
+  
 <!-- <script type="text/javascript">
 data = {{data|tojson}}
 </script> -->
+
+<!-- Themes Script -->
 <script src="/static/themes/default/config.js" defer></script>
+
+<!-- Navbar Div   -->
 <div id="navbar">
+  <!-- File Tab -->
   <span id="file-span">File</span>
+    <!-- File Dropdown -->
     <div id="file">
       <span id="file-new">New Drawing</span>
       <span id="file-clear">Clear Drawing</span>
@@ -33,10 +49,13 @@ data = {{data|tojson}}
       <span id="file-server-upload">Save to Cloud</span>
       <span id="file-upload-custom-style">Upload Custom Style</span>
     </div>
-   
+
+  <!-- Setting Tab -->
   <span id="settings-span">Settings</span>
-  
+
+  <!-- Other Apps -->
   <span id="otherApps-span">Other Apps</span>
+    <!-- Other Apps Dropdown -->
     <div id="otherApps">
       <a href="https://m1dnight.is-a.dev"><span>Portfolio</span></a>
       <a href="https://sites.google.com/westex.org/sci2"><span>Sci World 2</span></a>
@@ -45,6 +64,7 @@ data = {{data|tojson}}
   
 </div>
 
+<!-- Settings Menu -->
 <div id="settings-menu">
   <ion-icon id="close-icon" name="close"></ion-icon>
   <div id="settings-menu-sidebar">
