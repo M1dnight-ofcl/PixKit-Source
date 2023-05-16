@@ -1,0 +1,12 @@
+{
+  "backgroundColor": "#282C34", 
+  "textColor": "#ffffff",
+  "interfaceColor": "#3b3c3f",
+  "outlineColor": "#62656a",
+  "navbarItemColor": "#55585e",
+  "activeColor": "#009dff",
+  
+  "cohesiveBorderRadius": "0vmin",
+  "customCssPath": "/static/themes/default/style.css",
+  "jsThemeConfigPath": "/static/themes/default/config.js",
+};

@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head id="head">
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pixkit - App</title>
-  <link rel="stylesheet" href="static/css/style.css">
   <link rel="icon" type="image/x-icon" href="/static/pixkit-favicon.png">
   <script src="static/js/detectMobile.js"></script>
   <script src="static/js/script.js" defer></script>
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <!-- <link href="/static/themes/default/style.css" rel="stylesheet"> -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
-<script type="text/javascript">
-data = myFunc({{data|tojson}})
-</script>
+<!-- <script type="text/javascript">
+data = {{data|tojson}}
+</script> -->
+<script src="/static/themes/default/config.js" defer></script>
 <div id="navbar">
   <span id="file-span">File</span>
     <div id="file">
@@ -30,8 +31,9 @@ data = myFunc({{data|tojson}})
         </div>
 
       <span id="file-server-upload">Save to Cloud</span>
+      <span id="file-upload-custom-style">Upload Custom Style</span>
     </div>
-  
+   
   <span id="settings-span">Settings</span>
   
   <span id="otherApps-span">Other Apps</span>

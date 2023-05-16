@@ -2,7 +2,8 @@
 By M1dnightDev (c) 2023
 v0.1.b
 */
-let draw = false
+
+var draw = false
 
 var canvas =         document.getElementById("canvas");
 var brushColor =     document.getElementById("color");
