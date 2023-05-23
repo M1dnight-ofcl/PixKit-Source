@@ -17,7 +17,7 @@
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   
   <!-- Temporary CSS link -->
-  <link href="/static/themes/default/style.css" rel="stylesheet">
+  <link href="/static/themes/default/style.css" rel="stylesheet" id="theme">
   
   <!-- jQuery import -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -67,16 +67,26 @@ data = {{data|tojson}}
 <!-- Settings Menu -->
 <div id="settings-menu">
   <ion-icon id="close-icon" name="close"></ion-icon>
-  <div id="settings-menu-sidebar">
-    <span id="settings-main-span">General Settings</span>
-    <span id="settings-personalization-span">Personalization</span>
-  </div>
   <div id="settings-menu-main" class="settingsContent">
     <h1>Canvas Settings</h1>
     <span id="settings-showGuides">Show Guides <input type="checkbox" id="guideTog" checked></span>
-  </div>
-  <div id="settings-menu-personalization" class="settingsContent">
     <h1>Personalization Settings</h1>
+    <span>Select Theme</span>
+    <form id="current-theme-selector">
+      <select name="theme" onchange="updateTheme()">
+        <option value="/static/themes/default/style.css">Default: Dark</option>
+        <option value="/static/themes/default/style-light.css">Default: Light</option>
+        <option value="/static/themes/no-style/style.css">Barebones</option>
+      </select>
+    </form>
+    <script>
+      function updateTheme() {
+        let form = document.getElementById('current-theme-selector');
+        let theme = form.elements['theme'];
+        let currentCss = document.getElementById('theme');
+        currentCss.href = theme.value;
+      }
+    </script>
   </div>
 </div>
   

@@ -6,7 +6,7 @@ from datetime import datetime
 from colorama import Fore as color
 from serverside import serverMenu as internal
 
-version = "v0.6 patch 8"
+version = "v0.7 patch 1"
 
 class Sketch(f.Flask):
   def __init__(self):

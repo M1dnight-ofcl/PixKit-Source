@@ -9,11 +9,11 @@ z-index toc 1-99:
 */
 
 :root {
-  --bgClr: #282C34;
-  --txClr: #ffffff;
-  --uiClr: #3b3c3f;
-  --olClr: #62656a;
-  --nlClr: #55585e;
+  --bgClr: #ffffff;
+  --txClr: #282C34;
+  --uiClr: #bdc1cb;
+  --olClr: #888a91;
+  --nlClr: #bdc1cb;
   --avClr: #009dff;
   --gdWdt: 0.3px;
   --gdStr: 0.3;
@@ -172,7 +172,7 @@ span {
   z-index: 98;
   width: 55dvw;
   aspect-ratio: 16 / 10;
-  background: rgba(59, 60, 63, 0.8);
+  background: rgba(189,193,203,0.8);
   backdrop-filter: blur(5vmin);
   border: 0.5px solid var(--olClr);
 }

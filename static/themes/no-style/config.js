@@ -15,5 +15,5 @@ var config = function(data) {
 }
 
 $(document).ready(function() {
-  $.getJSON('static/themes/default/default.json', config);
+  $.getJSON('static/themes/no-style/default.json', config);
 });

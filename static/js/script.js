@@ -164,9 +164,6 @@ function switchToSettingTab(tabName) {
 document.getElementById("settings-span").addEventListener("click", loadSettingsMenu);
 document.getElementById("close-icon").addEventListener("click", loadSettingsMenu);
 
-document.getElementById("settings-main-span").addEventListener("click", switchToSettingTab("settings-menu-main"));
-document.getElementById("settings-personalization-span").addEventListener("click", switchToSettingTab("settings-menu-personalization"));
-
 document.getElementById("zoom").addEventListener("change", () => {
   scale = 100 + (document.getElementById("zoom").value * 10)
   canvasContainer = document.getElementById("canvasContainer")

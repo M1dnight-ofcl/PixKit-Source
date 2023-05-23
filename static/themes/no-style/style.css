@@ -9,17 +9,14 @@ z-index toc 1-99:
 */
 
 :root {
-  --bgClr: #282C34;
-  --txClr: #ffffff;
-  --uiClr: #3b3c3f;
-  --olClr: #62656a;
-  --nlClr: #55585e;
-  --avClr: #009dff;
+  --bgClr: #ffffff;
+  --txClr: #000000;
+  --uiClr: #dbdbdb;
+  --olClr: #000000;
+  --nlClr: #dbdbdb;
+  --avClr: #0400ff;
   --gdWdt: 0.3px;
   --gdStr: 0.3;
-}
-html {
-  font-family: 'Lexend Deca', sans-serif;
 }
 body {
   background: var(--bgClr);
@@ -55,12 +52,10 @@ span {
   padding-left: 4vmin;
   padding-right: 4vmin;
   color: var(--txClr);
-  transition: 0.35s;
   font-size: 3dvh;
 }
 #navbar span:hover {
   background: var(--avClr);
-  transform: scale(110%);
 }
 #canvas {
   cursor: pointer;
@@ -172,12 +167,24 @@ span {
   z-index: 98;
   width: 55dvw;
   aspect-ratio: 16 / 10;
-  background: rgba(59, 60, 63, 0.8);
+  background: rgba(189,193,203,0.8);
   backdrop-filter: blur(5vmin);
   border: 0.5px solid var(--olClr);
 }
+#settings-menu-sidebar span {
+  display: block;
+  padding: 1.5vmin;
+  background: var(--nlClr);
+  width: 100
+  border: 0.5px solid var(--olClr);
+  margin-bottom: 1.25vmin;
+  font-size: 3vmin;
+}
+#settings-menu-sidebar span:hover {
+  background: var(--avClr);
+}
 
-#settings-menu-main {
+#settings-menu-main, #settings-menu-personalization {
   display: flex;
   flex-direction: column;
   justify-content: top;
@@ -206,7 +213,7 @@ span {
   margin: 0.5vmin;
   font-size: 4vmin;
 }
-input[type="range"]{
+input[type="range"] {
   width: 80%;
   margin: 1vmin;
   -webkit-appearance:none;
@@ -218,9 +225,6 @@ input[type="range"]{
   outline: none;
 }
 
-input[type="range"]:first-of-type {
-}
-
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance:none;
   height: 5vmin;
@@ -229,9 +233,6 @@ input[type="range"]::-webkit-slider-thumb {
   position:relative;
   z-index:3;
   box-shadow:0 0 5px 0 rgba(0,0,0,0.3);
-}
-input[type="range"]::-webkit-slider-thumb:hover {
-  transform: scale(110%);
 }
 select {
   color: var(--txClr);
