@@ -16,8 +16,9 @@
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   
-  <!-- Temporary CSS link -->
+  <!-- CSS link -->
   <link href="/static/themes/default/style.css" rel="stylesheet" id="theme">
+  <style id="customcss"></style>
   
   <!-- jQuery import -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -73,20 +74,80 @@ data = {{data|tojson}}
     <h1>Personalization Settings</h1>
     <span>Select Theme</span>
     <form id="current-theme-selector">
-      <select name="theme" onchange="updateTheme()">
+      <select id="themeSelector" name="theme" onchange="updateTheme()">
         <option value="/static/themes/default/style.css">Default: Dark</option>
         <option value="/static/themes/default/style-light.css">Default: Light</option>
+        <!-- <option value="/static/themes/translucent/style.css">Translucent</option> -->
         <option value="/static/themes/no-style/style.css">Barebones</option>
       </select>
+      <!-- <input type="file" id="customcss" name="customcss" onchange="updateTheme()"> -->
     </form>
     <script>
       function updateTheme() {
         let form = document.getElementById('current-theme-selector');
         let theme = form.elements['theme'];
+        let customcss = form.elements['customcssinput'];
+        // if(customcss.value != "") {
+        // customcss.reset();
+        // alert('Sorry, but this feature does not work!')
+        //   let currentCss = document.getElementById('theme');
+        //   currentCss.href = '';
+        //   let css = document.getElementById('customcss');
+        //   var reader = new FileReader();
+        //   let csscontents = reader.readAsText(customcss.value, "UTF-8");
+        //   css.innerHTML = csscontents;
+        //   console.log('found custom css data ' + customcss.value + " " + csscontents)
+        // } else {
         let currentCss = document.getElementById('theme');
         currentCss.href = theme.value;
+        // }
       }
     </script>
+
+    <h1>Experimental Settings</h1>
+    <span id="settings-showGuides">Developer Mode <input type="checkbox" id="togDev"></span>
+    <script>
+      var devToggle = document.getElementById('togDev');
+      devToggle.addEventListener('change', function(e) {
+        if(devToggle.checked){
+          let yes = confirm('Do you want to enable developer mode? It will have extra themes and tools but all will be experimental and could break at any moment.');
+          if(!yes) {
+            devToggle.checked = false;
+            return
+          }
+          console.log('developer mode enabled');
+          let expTheme = document.createElement("option");
+          expTheme.value = '/static/themes/translucent/style.css';
+          expTheme.innerHTML = 'Translucent';
+          expTheme.id = 'translucent-theme';
+          document.getElementById('themeSelector').append(expTheme)
+
+          // let customcss = document.createElement("input");
+          // let customcsslabel = document.createElement("label");
+          // customcss.type = 'file';
+          // customcss.name = 'customcssinput';
+          // customcss.id = 'customcssinput';
+          // customcss.style = 'margin: 1vmin; margin-left: 0;';
+          // customcss.onchange = 'updateTheme()'
+          
+          // customcsslabel.innerHTML = 'Upload Custom CSS File';
+          // customcsslabel.for = 'customcssinput';
+          // customcsslabel.id = 'custom-css-upload';
+
+          // document.getElementById('current-theme-selector').append(customcsslabel)
+          // document.getElementById('current-theme-selector').append(customcss)
+        } else {
+          console.log('developer mode disabled')
+          document.getElementById('translucent-theme').remove()
+          document.getElementById('customcssinput').remove()
+          document.getElementById('custom-css-upload').remove()
+        };
+      });
+      
+    </script>
+    
+    <!-- version information -->
+    <info>version {{vnum}} (c) {{dev}} 2023</info>
   </div>
 </div>
   

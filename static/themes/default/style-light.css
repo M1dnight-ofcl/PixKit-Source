@@ -9,12 +9,12 @@ z-index toc 1-99:
 */
 
 :root {
-  --bgClr: #ffffff;
-  --txClr: #282C34;
-  --uiClr: #bdc1cb;
-  --olClr: #888a91;
-  --nlClr: #bdc1cb;
-  --avClr: #009dff;
+  --bgClr: #F8F6F4;
+  --txClr: #3b3941;
+  --uiClr: #E3F4F4;
+  --olClr: #ACBCFF;
+  --nlClr: #AEE2FF;
+  --avClr: #ACBCFF;
   --gdWdt: 0.3px;
   --gdStr: 0.3;
 }
@@ -107,7 +107,6 @@ span {
 #logo {
   margin: 1vmin;
   margin-bottom: 3vmin;
-  filter: invert(1);
 }
 #color {
   width: 7vmin;
@@ -172,8 +171,7 @@ span {
   z-index: 98;
   width: 55dvw;
   aspect-ratio: 16 / 10;
-  background: rgba(189,193,203,0.8);
-  backdrop-filter: blur(5vmin);
+  background: var(--uiClr);
   border: 0.5px solid var(--olClr);
 }
 
@@ -238,4 +236,12 @@ select {
   background: var(--nlClr);
   border: 0.5px solid var(--olClr);
   width: 40vmin;
+  height: 6vmin;
+  font-size: 4vmin;
+}
+info {
+  color: var(--txClr);
+  opacity: 80%;
+  font-size: 3vmin;
+  margin-top: 5vmin;
 }

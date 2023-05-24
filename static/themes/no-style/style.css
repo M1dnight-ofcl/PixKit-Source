@@ -8,34 +8,17 @@ z-index toc 1-99:
 90: canvas
 */
 
-:root {
-  --bgClr: #ffffff;
-  --txClr: #000000;
-  --uiClr: #dbdbdb;
-  --olClr: #000000;
-  --nlClr: #dbdbdb;
-  --avClr: #0400ff;
-  --gdWdt: 0.3px;
-  --gdStr: 0.3;
-}
 body {
-  background: var(--bgClr);
-  color: var(--txClr);
   padding: 0;
   margin: 0;
   font-size: 5vmin;
   padding-top: 7.5dvh;
-  user-select: none;
-}
-span {
-  user-select: none;
 }
 #navbar {
   position: fixed;
   top: 0;
   height: 7.5dvh;
   width: 100dvw;
-  background: var(--uiClr);
   margin: 0;
   padding: 0;
   z-index: 99;
@@ -45,17 +28,11 @@ span {
   text-decoration: none;
   height: 4dvh;
   width: auto;
-  border: none;
   margin: 0.5vmin;
-  background: var(--nlClr);
   padding: 1vmin;
   padding-left: 4vmin;
   padding-right: 4vmin;
-  color: var(--txClr);
   font-size: 3dvh;
-}
-#navbar span:hover {
-  background: var(--avClr);
 }
 #canvas {
   cursor: pointer;
@@ -69,10 +46,10 @@ span {
   z-index: 90;
 }
 #guide div {
-  border: var(--gdWdt) solid rgba(0, 0, 0, var(--gdStr));
   margin: 0;
   padding: 0;
   z-index: 99;
+  border: 0.5vmin solid rgba(0,0,0,0.5);
 }
 #canvasContainer {
   position: fixed;
@@ -87,11 +64,9 @@ span {
   flex-direction: column;
   justify-content: center;
   align-items: left;
-  border: 0.5px solid var(--olClr);
   padding: 2vmin;
   width: 25dvw;
   height: 92.5dvh;
-  background: var(--uiClr);
   transform: scale(100%);
   z-index: 91;
 }
@@ -102,12 +77,10 @@ span {
 #logo {
   margin: 1vmin;
   margin-bottom: 3vmin;
-  filter: invert(1);
 }
 #color {
   width: 7vmin;
   height: 7vmin;
-  border: none;
 }
 
 #file, #file div, #settings, #settings div, #otherApps {
@@ -117,17 +90,12 @@ span {
   height: auto;
   display: flex;
   flex-direction: column;
-  background: var(--uiClr);
-  border: 1px solid var(--olClr);
   padding: 0.5vmin;
   margin: 0;
   display: none;
 }
 #file span, #settings span, #otherApps span {
   display: block;
-}
-#otherApps a {
-  text-decoration: none;
 }
 
 #file-export-options {
@@ -167,21 +135,6 @@ span {
   z-index: 98;
   width: 55dvw;
   aspect-ratio: 16 / 10;
-  background: rgba(189,193,203,0.8);
-  backdrop-filter: blur(5vmin);
-  border: 0.5px solid var(--olClr);
-}
-#settings-menu-sidebar span {
-  display: block;
-  padding: 1.5vmin;
-  background: var(--nlClr);
-  width: 100
-  border: 0.5px solid var(--olClr);
-  margin-bottom: 1.25vmin;
-  font-size: 3vmin;
-}
-#settings-menu-sidebar span:hover {
-  background: var(--avClr);
 }
 
 #settings-menu-main, #settings-menu-personalization {
@@ -213,30 +166,12 @@ span {
   margin: 0.5vmin;
   font-size: 4vmin;
 }
-input[type="range"] {
-  width: 80%;
-  margin: 1vmin;
-  -webkit-appearance:none;
-  background: var(--nlClr);
-  background-size:150px 10px;
-  background-position:center;
-  background-repeat:no-repeat;
-  overflow:hidden;
-  outline: none;
-}
-
-input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance:none;
-  height: 5vmin;
-  width: 5vmin;
-  background: var(--avClr);
-  position:relative;
-  z-index:3;
-  box-shadow:0 0 5px 0 rgba(0,0,0,0.3);
-}
 select {
-  color: var(--txClr);
-  background: var(--nlClr);
-  border: 0.5px solid var(--olClr);
   width: 40vmin;
+  height: 6vmin;
+  font-size: 4vmin;
+}
+info {
+  font-size: 3vmin;
+  margin-top: 5vmin;
 }

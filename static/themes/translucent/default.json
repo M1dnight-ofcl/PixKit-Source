@@ -1,0 +1,12 @@
+{
+  "backgroundColor": "#fffffff", 
+  "textColor": "#000000",
+  "interfaceColor": "#ffffff",
+  "outlineColor": "#000000",
+  "navbarItemColor": "#ffffff",
+  "activeColor": "#009dff",
+  
+  "cohesiveBorderRadius": "0vmin",
+  "customCssPath": "/static/themes/translucent/style.css",
+  "jsThemeConfigPath": "/static/themes/translucent/config.js",
+};

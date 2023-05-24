@@ -22,7 +22,7 @@ class Sketch(f.Flask):
     @self.route('/app', methods=['GET', 'POST'])
     def app():
       image = None
-      return f.render_template("index.html", data=image)
+      return f.render_template("index.html", data=image, vnum=version, dev='M1dnightDev')
 
     @self.route('/m')
     def mobile():

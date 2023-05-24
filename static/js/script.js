@@ -3,8 +3,6 @@ By M1dnightDev (c) 2023
 v0.1.b
 */
 
-var draw = false
-
 var canvas =         document.getElementById("canvas");
 var brushColor =     document.getElementById("color");
 var brushWidth =     document.getElementById("width");
@@ -55,23 +53,14 @@ function handleCanvasMousedown(e) {
   if (e.button !== 0) {
     return;
   }
+  var canvasBoundingRect = canvas.getBoundingClientRect();
+  var x = e.clientX - canvasBoundingRect.left;
+  var y = e.clientY - canvasBoundingRect.top;
+  var cX = Math.floor(x / cellPixelLength);
+  var cY = Math.floor(y / cellPixelLength);
+  var currentCellColor = colorHistory[`${cX}_${cY}`];
 
-  do {
-    var canvasBoundingRect = canvas.getBoundingClientRect();
-    var x = e.clientX - canvasBoundingRect.left;
-    var y = e.clientY - canvasBoundingRect.top;
-    var cX = Math.floor(x / cellPixelLength);
-    var cY = Math.floor(y / cellPixelLength);
-    var currentCellColor = colorHistory[`${cX}_${cY}`];
-
-    if (e.ctrlKey) {
-      if (currentCellColor) {
-        brushColor.value = currentCellColor;
-      }
-    } else {
-      fillCell(cX, cY);
-    }
-  } while (draw);
+  fillCell(cX, cY);
 }
 
 function handleClearButtonClick() {
@@ -168,13 +157,6 @@ document.getElementById("zoom").addEventListener("change", () => {
   scale = 100 + (document.getElementById("zoom").value * 10)
   canvasContainer = document.getElementById("canvasContainer")
   canvasContainer.style.transform = "scale("+ scale.toString() +"%)"
-});
-
-window.addEventListener("mousedown", function(){
-    draw = true
-})
-window.addEventListener("mouseup", function(){
-    draw = false
 });
 
 function uploadDrawing() {

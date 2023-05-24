@@ -20,17 +20,5 @@ Here are the basic contents of [config.js]:
 // coming soon...
 ```
 ### {style.css} Starter Guide
-PixKit does not come with a default stylesheet, but rather a default style. <br>
-Here are some of the important IDs that need to be set:
-```css
-#navbar
-#navbar span
-#canvas
-#guide
-#guide div
-#canvasContainer
-#controlContainer
-#logo
-/*these are only a few of them*/
-```
-It is recommended to use the [default] theme as a starter, as it contains all import IDs set
+We have a No-Style theme, which can be located in this directory.
+It is best to use this as a template.

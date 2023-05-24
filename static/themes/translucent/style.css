@@ -1,5 +1,4 @@
-@import url('https://fonts.cdnfonts.com/css/lexend-deca');
-
+@import url('https://fonts.cdnfonts.com/css/kids-text-display-2');
 /*
 z-index toc 1-99:
 99: navbar
@@ -9,20 +8,22 @@ z-index toc 1-99:
 */
 
 :root {
-  --bgClr: #282C34;
+  --bgClr: #ffffff;
   --txClr: #ffffff;
-  --uiClr: #3b3c3f;
-  --olClr: #62656a;
-  --nlClr: #55585e;
-  --avClr: #009dff;
+  --uiClr: rgba(59, 53, 53, 0.7);
+  --olClr: rgba(0,0,0,0);
+  --nlClr: rgba(86, 78, 78, 0.5);
+  --avClr: #0091ff;
   --gdWdt: 0.3px;
   --gdStr: 0.3;
 }
 html {
-  font-family: 'Lexend Deca', sans-serif;
+  font-family: 'KIDS Text', sans-serif;
 }
 body {
-  background: var(--bgClr);
+  background: #2b5876;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #4e4376, #2b5876);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #4e4376, #2b5876); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color: var(--txClr);
   padding: 0;
   margin: 0;
@@ -34,6 +35,7 @@ span {
   user-select: none;
 }
 #navbar {
+  backdrop-filter: blur(3vmin);
   position: fixed;
   top: 0;
   height: 7.5dvh;
@@ -44,6 +46,7 @@ span {
   z-index: 99;
 }
 #navbar span {
+  border-radius: 3vmin;
   display: inline-flex;
   text-decoration: none;
   height: 4dvh;
@@ -55,12 +58,10 @@ span {
   padding-left: 4vmin;
   padding-right: 4vmin;
   color: var(--txClr);
-  transition: 0.35s;
   font-size: 3dvh;
 }
 #navbar span:hover {
   background: var(--avClr);
-  transform: scale(110%);
 }
 #canvas {
   cursor: pointer;
@@ -87,6 +88,7 @@ span {
   z-index: 90;
 }
 #controlContainer {
+  backdrop-filter: blur(3vmin);
   display: flex;
   position: fixed;
   flex-direction: column;
@@ -103,20 +105,23 @@ span {
 .slider {
   width: 70%;
   height: 5vmin;
+  border-radius: 3vmin;
 }
 #logo {
   margin: 1vmin;
-  margin-bottom: 3vmin;
   filter: invert(1);
+  margin-bottom: 3vmin;
 }
 #color {
   width: 7vmin;
   height: 7vmin;
   border: none;
+  border-radius: 3vmin;
 }
 
 #file, #file div, #settings, #settings div, #otherApps {
   position: fixed;
+  border-radius: 3vmin;
   top: 7.5dvh;
   width: 40vmin;
   height: auto;
@@ -164,6 +169,8 @@ span {
 }
 
 #settings-menu {
+  border-radius: 3vmin;
+  backdrop-filter: blur(3vmin);
   display: none;
   position: fixed;
   top: 50%;
@@ -172,12 +179,11 @@ span {
   z-index: 98;
   width: 55dvw;
   aspect-ratio: 16 / 10;
-  background: rgba(59, 60, 63, 0.8);
-  backdrop-filter: blur(5vmin);
+  background: var(--uiClr);
   border: 0.5px solid var(--olClr);
 }
 
-#settings-menu-main {
+#settings-menu-main, #settings-menu-personalization {
   display: flex;
   flex-direction: column;
   justify-content: top;
@@ -205,33 +211,7 @@ span {
   width: 100%;
   margin: 0.5vmin;
   font-size: 4vmin;
-}
-input[type="range"]{
-  width: 80%;
-  margin: 1vmin;
-  -webkit-appearance:none;
-  background: var(--nlClr);
-  background-size:150px 10px;
-  background-position:center;
-  background-repeat:no-repeat;
-  overflow:hidden;
-  outline: none;
-}
-
-input[type="range"]:first-of-type {
-}
-
-input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance:none;
-  height: 5vmin;
-  width: 5vmin;
-  background: var(--avClr);
-  position:relative;
-  z-index:3;
-  box-shadow:0 0 5px 0 rgba(0,0,0,0.3);
-}
-input[type="range"]::-webkit-slider-thumb:hover {
-  transform: scale(110%);
+  border-radius: 3vmin;
 }
 select {
   color: var(--txClr);
@@ -246,4 +226,14 @@ info {
   opacity: 80%;
   font-size: 3vmin;
   margin-top: 5vmin;
+}
+#custom-css-upload {
+  background-color: var(--nlClr);
+  color: var(--txClr);
+  cursor: pointer;
+  padding: 2vmin;
+}
+#custom-css-upload:hover {
+  background: var(--avClr);
+  transform: scale(110%);
 }
