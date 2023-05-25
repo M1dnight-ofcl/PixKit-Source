@@ -12,9 +12,11 @@ var saveCanvas =     document.getElementById("save");
 var canvasClear =    document.getElementById("clear");
 var guideToggle =    document.getElementById("guideTog");
 var canvasContext =  canvas.getContext("2d");
+var eraser =         document.getElementById("eraser");
 
 var NotValidRes = true;
 var userInputRes;
+var tool = 'd';
 
 while (NotValidRes) {
   userInputRes = prompt("What would you like your canvas resolution to be?", "0");
@@ -60,8 +62,35 @@ function handleCanvasMousedown(e) {
   var cY = Math.floor(y / cellPixelLength);
   var currentCellColor = colorHistory[`${cX}_${cY}`];
 
-  fillCell(cX, cY);
+  if(tool == 'e') {
+    localStorage.setItem('oldColor', brushColor.value)
+    brushColor.value = '#ffffff';
+    fillCell(cX, cY)
+    delete colorHistory[`${cX}_${cY}`]
+    brushColor.value = localStorage.getItem('oldColor');
+  } else {
+    fillCell(cX, cY);
+  }
 }
+document.addEventListener("keypress", function(event) {
+  if (event.keyCode == 13) {
+    tool = 'e';
+  }
+});
+
+$(window).on('beforeunload', function() {
+  if(colorHistory != {}) {
+    return confirm("Do you really want to close? You will lose your current drawing!");
+  }
+});
+
+eraser.addEventListener('change', function(e) {
+  if(eraser.checked) {
+    tool = 'e';
+  } else {
+    tool = 'd';
+  }
+});
 
 function handleClearButtonClick() {
   var yes = confirm("Are you sure you want to clear the canvas?")

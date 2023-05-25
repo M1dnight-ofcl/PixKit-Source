@@ -1,3 +1,4 @@
+<!-- Created by M1dnightDev -->
 <!DOCTYPE html>
 <html lang="en">
 <head id="head">
@@ -15,6 +16,9 @@
   <!-- Ionic Icons Import -->
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+  <!-- Font-Awesome Import -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   
   <!-- CSS link -->
   <link href="/static/themes/default/style.css" rel="stylesheet" id="theme">
@@ -34,7 +38,7 @@ data = {{data|tojson}}
 <!-- Navbar Div   -->
 <div id="navbar">
   <!-- File Tab -->
-  <span id="file-span">File</span>
+  <span id="file-span" class="span">File</span>
     <!-- File Dropdown -->
     <div id="file">
       <span id="file-new">New Drawing</span>
@@ -52,10 +56,10 @@ data = {{data|tojson}}
     </div>
 
   <!-- Setting Tab -->
-  <span id="settings-span">Settings</span>
+  <span id="settings-span" class="span">Settings</span>
 
   <!-- Other Apps -->
-  <span id="otherApps-span">Other Apps</span>
+  <span id="otherApps-span" class="span">Other Apps</span>
     <!-- Other Apps Dropdown -->
     <div id="otherApps">
       <a href="https://m1dnight.is-a.dev"><span>Portfolio</span></a>
@@ -100,27 +104,53 @@ data = {{data|tojson}}
         // } else {
         let currentCss = document.getElementById('theme');
         currentCss.href = theme.value;
+        localStorage.setItem('theme', theme.value)
         // }
+      }
+      if(localStorage.getItem('theme')) {
+        let currentCss = document.getElementById('theme');
+        currentCss.href = localStorage.getItem('theme');
       }
     </script>
 
     <h1>Experimental Settings</h1>
-    <span id="settings-showGuides">Developer Mode <input type="checkbox" id="togDev"></span>
+    <span id="settings-developerMode">Developer Mode <input type="checkbox" id="togDev"></span>
+    <!-- <span id="settings-saveLocal">Save Settings Locally <input type="checkbox" id="localSave"></span> -->
     <script>
       var devToggle = document.getElementById('togDev');
-      devToggle.addEventListener('change', function(e) {
+      var devmodeonstartup = false;
+      devToggle.checked = false;
+      if (localStorage.getItem('devmodetoggled')) {
+        devToggle.checked = localStorage.getItem('devmodetoggled')
+        if(devToggle.checked) {
+          devmodeonstartup = true;
+        }
+        toggleDevMode()
+      }
+      function toggleDevMode() {
         if(devToggle.checked){
-          let yes = confirm('Do you want to enable developer mode? It will have extra themes and tools but all will be experimental and could break at any moment.');
-          if(!yes) {
-            devToggle.checked = false;
-            return
+          if(!devmodeonstartup) {
+            let yes = confirm('Do you want to enable developer mode? It will have extra themes and tools but all will be experimental and could break at any moment.');
+          
+            if(!yes) {
+              devToggle.checked = false;
+              return
+            }
           }
+          devmodeonstartup = false;
+          localStorage.setItem('devmodetoggled', true);
           console.log('developer mode enabled');
-          let expTheme = document.createElement("option");
-          expTheme.value = '/static/themes/translucent/style.css';
-          expTheme.innerHTML = 'Translucent';
-          expTheme.id = 'translucent-theme';
-          document.getElementById('themeSelector').append(expTheme)
+          let translucent = document.createElement("option");
+          translucent.value = '/static/themes/translucent/style.css';
+          translucent.innerHTML = 'Translucent';
+          translucent.id = 'translucent-theme';
+          document.getElementById('themeSelector').append(translucent)
+
+          let modern = document.createElement("option");
+          modern.value = '/static/themes/modern/style.css';
+          modern.innerHTML = 'Modern: Dark';
+          modern.id = 'modern-theme';
+          document.getElementById('themeSelector').append(modern)
 
           // let customcss = document.createElement("input");
           // let customcsslabel = document.createElement("label");
@@ -142,8 +172,13 @@ data = {{data|tojson}}
           document.getElementById('customcssinput').remove()
           document.getElementById('custom-css-upload').remove()
         };
-      });
-      
+      };
+      devToggle.addEventListener('change', toggleDevMode);
+
+    if(localStorage.getItem('theme')) {
+      var currentTheme = Array.from(document.querySelectorAll('option')).filter(option => option.value === localStorage.getItem('theme'))[0];
+      currentTheme.selected = true;
+    }
     </script>
     
     <!-- version information -->
@@ -171,6 +206,10 @@ data = {{data|tojson}}
   <div>
     <label for="color"><ion-icon name="color-palette"></ion-icon></label>
     <input type="color" id="color">
+  </div>
+  <div>
+    <label for="eraser"><i class="fa-solid fa-eraser"></i></label>
+    <input type="checkbox" id="eraser">
   </div>
   <div>
   <div>
